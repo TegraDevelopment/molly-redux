@@ -38,6 +38,9 @@ TARGET_NO_RADIOIMAGE := true
 # Camera
 USE_CAMERA_STUB := true
 
+# Display
+SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
+
 # Fonts (includes additional fonts)
 EXTENDED_FONT_FOOTPRINT := true
 
