@@ -64,6 +64,12 @@ PRODUCT_PACKAGES += \
 # HDMI CEC: Molly works as a playback device (4)
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/hidl/manifest.xml:system/vendor/manifest.xml
+
+$(call inherit-product, $(LOCAL_PATH)/hidl/hidl.mk)
+
 # LED
 PRODUCT_PACKAGES += \
     MollyLED
@@ -116,6 +122,7 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     hostapd \
     libwpa_client \
+    wificond \
     wpa_supplicant \
     wpa_supplicant.conf
 
@@ -125,10 +132,5 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_PROPERTY_OVERRIDES += wifi.interface=wlan0
-
-# HIDL
-$(call inherit-product, $(LOCAL_PATH)/hidl/hidl.mk)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/hidl/manifest.xml:system/vendor/manifest.xml
 
 $(call inherit-product-if-exists, vendor/google/molly/molly-vendor.mk)
