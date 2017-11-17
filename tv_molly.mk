@@ -18,6 +18,17 @@
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
+# TV-specific Apps/Packages
+PRODUCT_PACKAGES += \
+    AppDrawer \
+    LeanbackCustomize \
+    LeanbackLauncher \
+    LeanbackIme \
+    Provision \
+    TvProvider \
+    tv_input.default \
+    TV
+
 PRODUCT_NAME := tv_molly
 PRODUCT_DEVICE := molly
 PRODUCT_BRAND := google
