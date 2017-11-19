@@ -57,6 +57,7 @@ TARGET_KERNEL_SOURCE := kernel/google/molly
 TARGET_KERNEL_CONFIG := lineageos_molly_defconfig
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+BOARD_KERNEL_IMAGE_NAME := zImage
 
 # Malloc memory configuration
 MALLOC_SVELTE := true
