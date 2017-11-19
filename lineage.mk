@@ -16,7 +16,7 @@
 #
 
 $(call inherit-product, device/google/molly/device.mk)
-$(call inherit-product, vendor/cm/config/common_full_tv.mk)
+$(call inherit-product, vendor/lineage/config/common_full_tv.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, device/google/molly/aosp_molly.mk)
 
