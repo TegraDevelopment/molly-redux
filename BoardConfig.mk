@@ -79,8 +79,8 @@ TARGET_RECOVERY_DEVICE_DIRS += device/google/molly
 TARGET_RECOVERY_FSTAB := device/google/molly/rootdir/etc/fstab.molly
 
 # Selinux
-BOARD_SEPOLICY_DIRS := \
-    device/google/molly/sepolicy
+#BOARD_SEPOLICY_DIRS := \
+#    device/google/molly/sepolicy
 
 # Wifi related defines
 BOARD_HAVE_MARVELL_WIFI          := true
