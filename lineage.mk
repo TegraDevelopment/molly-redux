@@ -16,40 +16,34 @@
 #
 
 $(call inherit-product, device/google/molly/device.mk)
-$(call inherit-product, device/google/atv/products/atv_base.mk)
-$(call inherit-product, vendor/cm/config/common_full_tv.mk)
+$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+$(call inherit-product, device/google/molly/aosp_molly.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/google/molly/overlay-tv
+DEVICE_PACKAGE_OVERLAYS += device/google/molly/overlay-aosp
 
 # AppWidget permission needed to prevent a Launcher crash.
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml
 
 # Device Type
-PRODUCT_CHARACTERISTICS := tv,nosdcard
+PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
 # DPI
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=320
+    ro.sf.lcd_density=240
+
+# Launcher
+PRODUCT_PACKAGES += \
+     Launcher3
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/permissions/com.google.android.tv.installed.xml:system/etc/permissions/com.google.android.tv.installed.xml \
-    $(LOCAL_PATH)/permissions/tv_molly.xml:system/etc/permissions/tv_molly.xml
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+    $(LOCAL_PATH)/permissions/aosp_molly.xml:system/etc/permissions/aosp_molly.xml
 
-# TV-specific Apps/Packages
-PRODUCT_PACKAGES += \
-    AppDrawer \
-    LeanbackCustomize \
-    LeanbackLauncher \
-    LeanbackIme \
-    Provision \
-    TvProvider \
-    tv_input.default \
-    TV
-
-PRODUCT_NAME := tv_molly
+PRODUCT_NAME := lineage_molly
 PRODUCT_DEVICE := molly
 PRODUCT_BRAND := google
 PRODUCT_MODEL := ADT-1
@@ -68,4 +62,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=google/molly/molly:5.0.2/LRX22G/1649326:user/release-keys \
     PRIVATE_BUILD_DESC="molly-user 5.0.2 LRX22G 1649326 release-keys"
 
-$(call inherit-product-if-exists, vendor/google/molly/molly-tv-vendor.mk)
+$(call inherit-product-if-exists, vendor/google/molly/molly-vendor.mk)
