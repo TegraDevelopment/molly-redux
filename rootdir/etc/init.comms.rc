@@ -8,8 +8,9 @@
 
 on boot
     # bluetooth
+    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
     # change back to bluetooth from system
-    chown bluetooth net_bt_stack /data/misc/bluetooth
+    chown bluetooth bluetooth /data/misc/bluetooth
 
     # power up/down interface
     chmod 0660 /sys/class/rfkill/rfkill0/state
